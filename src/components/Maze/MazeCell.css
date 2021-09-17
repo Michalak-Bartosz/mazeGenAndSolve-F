@@ -1,0 +1,8 @@
+.maze-cell {
+    min-width: 50px;
+    min-height: 50px;
+    background-color: blue;
+    border-style: solid;
+    border-color: black;
+    border-width: 2px;
+}
