@@ -1,7 +1,4 @@
 import React, { useEffect, useState } from "react";
-
-import useApi from "../../../api/useApi";
-import MazeCell from "../../Maze/MazeCell";
 import axios from "axios"
 
 const MazePage = () => {

@@ -1,8 +1,13 @@
 .maze-cell {
-    min-width: 50px;
-    min-height: 50px;
-    background-color: blue;
+    width: 50px;
+    height: 50px;
+    background-color: #E6CCBE;
     border-style: solid;
-    border-color: black;
-    border-width: 2px;
+    border-color: #5A5353;
+    border-width: 5px;
+    border-radius: 10px;
 }
+
+/* Solve path #C8CC92 */
+/* Searched path #A07178 */
+/* Tmp color #776274 */

@@ -1,10 +1,7 @@
-import React, { useEffect } from "react";
+import React from "react";
+import './MazeCell.css'
 
 const MazeCell = (props) => {
-
-    useEffect(() => {
-        // props.MazeCell.walls.map(wall => )
-    }, [])
 
     return (
         <div className="maze-cell" />
