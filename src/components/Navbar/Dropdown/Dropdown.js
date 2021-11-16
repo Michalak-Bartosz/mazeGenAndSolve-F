@@ -13,19 +13,20 @@ function Dropdown(props) {
     return (
         <div className="navbar-links">
             <div className="dropdown-title" onClick={handleClick}>
-                {props.title} {isActive ? <i class="fas fa-level-up-alt"/> : <i class="fas fa-level-down-alt"/>}
+                {props.title}
+                <div className="dropdown-icon">
+                    {isActive ? <i className="fas fa-level-up-alt" /> : <i className="fas fa-level-down-alt" />}
+                </div>
             </div>
-            {isActive && <div className="dropdown-items">
-                <ul className="dropdown-list">
-                    {props.items.map((item, index) => {
-                        return (<li key={index}
-                            className={item.isSelected ? "selected-algorithms-name" : item.cName}
-                            onClick={changeSelectionAlhorithm(item)}>
-                            {item.title}
-                        </li>)
-                    })}
-                </ul>
-            </div>}
+            {isActive && <ul className="dropdown-list">
+                {props.items.map((item, index) => {
+                    return (<li key={index}
+                        className={item.isSelected ? "selected-dropdown-item" : item.cName}
+                        onClick={changeSelectionAlhorithm(item)}>
+                        {item.title}
+                    </li>)
+                })}
+            </ul>}
         </div>
     )
 }

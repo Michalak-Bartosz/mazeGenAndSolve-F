@@ -1,22 +1,22 @@
 export const GenAlgorithmsItems = [
     {
         title: 'Random DFS',
-        cName: 'algorithms-name',
+        cName: 'dropdown-item',
         isSelected: false
     },
     {
         title: 'Random Kruskal',
-        cName: 'algorithms-name',
+        cName: 'dropdown-item',
         isSelected: false
     },
     {
         title: 'Random Prim',
-        cName: 'algorithms-name',
+        cName: 'dropdown-item',
         isSelected: false
     },
     {
         title: 'Aldus Border',
-        cName: 'algorithms-name',
+        cName: 'dropdown-item',
         isSelected: false
     }
 ]

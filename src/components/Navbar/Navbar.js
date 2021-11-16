@@ -19,13 +19,10 @@ function Navbar() {
                     <Logo className="navbar-logo-image" />
                     MazeGen&Solve
                 </Link>
-                <div className="navbar-menu-icon" onClick={handleMenuClicked}>
-                    <i className={menuClicked ? "fas fa-times" : "fas fa-bars"}></i>
-                </div>
-                <ul className={menuClicked ? "navbar-menu active" : "navbar-menu"}>
+                <ul className={menuClicked ? "navbar-menu-hide" : "navbar-menu-active"}>
                     {MenuItems.map((item, index) => {
-                        return (<li key={index}>
-                            <Link to={item.url} className={item.cName}>
+                        return (<li key={index} className="navbar-links-li">
+                            <Link to={item.url} className={item.cName} >
                                 {item.title}
                             </Link>
                         </li>)
@@ -40,17 +37,16 @@ function Navbar() {
                             title="Solve Algorithms"
                             items={SolvAlgorithmsItems} />
                     </li>
-                    <li>
-                        <Link className="generate-link" to="/generate">
-                            Generate
-                        </Link>
-                    </li>
-                    <li>
-                        <Link className="solve-link" to="/solve">
-                            Solve
-                        </Link>
-                    </li>
                 </ul>
+                <div className="navbar-menu-icon" onClick={handleMenuClicked}>
+                    <i className={menuClicked ? "fas fa-times" : "fas fa-bars"}></i>
+                </div>
+                <Link className="generate-link" to="/generate">
+                    Generate
+                </Link>
+                <Link className="solve-link" to="/solve">
+                    Solve
+                </Link>
             </nav>
         </>
     );

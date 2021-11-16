@@ -1,12 +1,11 @@
 import React from "react";
 
-function RaportPage() {
-
+const SolvePage = () => {
     return (
         <div className="page">
-            RAPORT PAGE
+            SOLVE PAGE
         </div>
-    )
+    );
 }
 
-export default RaportPage
+export default SolvePage;
