@@ -1,9 +1,14 @@
 .page {
-    position: fixed;
     display: flex;
     margin-top: 100px;
-    background: #776274;
     padding: 1rem;
+    width: 100%;
+}
+
+.page-backgroud {
+    position: fixed;
+    display: flex;
+    background: #776274;
     height: 100%;
     width: 100%;
 }

@@ -1,17 +1,16 @@
 import React from "react";
-import MazeCell from "../Maze/MazeCell";
 import "./Page.css"
+import Menu from "../HomePage/Menu/Menu"
 
-function GeneratePage(props) {
+function HomePage() {
 
     return (
         <div className="page-backgroud">
             <div className="page">
-                <MazeCell />
-                <MazeCell />
+                <Menu />
             </div>
         </div>
     )
 }
 
-export default GeneratePage
+export default HomePage

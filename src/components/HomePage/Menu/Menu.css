@@ -1,0 +1,130 @@
+.main-page-menu {
+    display: table-row;
+    margin-top: 1rem;
+    background: black;
+    height: fit-content;
+    width: fit-content;
+    color: white;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: inset 0 0 1em #A4BAB7;
+}
+
+.main-page-menu h1 {
+    cursor: default;
+}
+
+.main-page-menu h2 {
+    cursor: default;
+}
+
+.main-page-menu h3 {
+    cursor: default;
+}
+
+.title {
+    border: white;
+    border-radius: 10px;
+    border-style: solid;
+    padding: 0.5rem;
+}
+
+.size-container {
+    border: white;
+    border-radius: 10px;
+    border-style: solid;
+    padding: 0.5rem;
+    margin-top: 1rem;
+}
+
+.generate-container {
+    border: white;
+    border-radius: 10px;
+    border-style: solid;
+    padding: 0.5rem;
+    margin-top: 1rem;
+}
+
+.size-title {
+    color: #C44900;
+    text-align: center;
+}
+
+.width-container {
+    display: flex;
+    align-items: center;
+}
+
+.height-container {
+    display: flex;
+    margin-top: 0.5rem;
+    align-items: center;
+}
+
+.input-value {
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: 0.5rem;
+    width: 45%;
+    background: #A4BAB7;
+    font-size: 15px;
+    padding: 0.3rem;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    border-radius: 5px;
+}
+
+.generate-title {
+    color: #EFF2C0;
+    text-align: center;
+}
+
+.line {
+    color: white;
+    border-style: solid;
+    border-width: 2px;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.generate-algorithm-select {
+    cursor: pointer;
+    width: 100%;
+    font-size: 20px;
+    border-radius: 5px;
+    background: #A4BAB7;
+    padding: 0.3rem;
+    padding-right: 1rem;
+    padding-left: 1rem;
+}
+
+.dropdown-item {
+    color: white;
+    background: hsl(172, 14%, 20%);   
+}
+
+.dropdown-item:checked {
+    color: white;
+    background-color: black;   
+}
+
+.submit-button {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    margin-top: 1rem;
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    font-size: 35px;
+    padding: 0.5rem;
+    background: #183A37;
+    color: #EFF2C0;
+    box-shadow: inset 0 0 1em #A4BAB7;
+}
+
+.submit-button:hover {
+    background: #2a5855;
+}
