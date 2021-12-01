@@ -1,0 +1,77 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1rem;
+    margin-top: auto;
+    max-height: 100%;
+}
+
+.arrow-icon {
+    color: white;
+    cursor: pointer;
+}
+
+.maze-list-container {
+    display: flex;
+    flex-direction: column;
+    min-width: 100%;
+    background: white;
+    border-radius: 8px;
+}
+
+.maze-list-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 1rem;
+}
+
+.reload-container {
+    background: #C44900;
+    border-radius: 8px;
+    border-style: solid;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: min-content;
+    padding: 0.3rem;
+    margin-right: 2rem;
+    cursor: pointer;
+}
+
+.reload-container:hover {
+    background: #883200;
+}
+
+.reload-title {
+    margin-right: 1rem;
+}
+
+.maze-list-title {
+    font-size: 35px;
+    font-weight: bolder;
+}
+
+.maze-list-hide {
+    display: none;
+    /* visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s linear;
+    margin: 0px; */
+}
+
+.maze-list {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+    /* list-style: none; */
+    visibility: visible;
+    opacity: 1;
+    overflow-y: scroll;
+    white-space: nowrap;
+}
+
+.maze-list-item {
+    color: black;
+}

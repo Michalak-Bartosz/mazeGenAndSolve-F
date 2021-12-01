@@ -1,9 +1,6 @@
 import { React, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { MenuItems } from './MenuItems'
-import { GenAlgorithmsItems } from "../ItemLists/GenAlgorithmsItems";
-import { SolvAlgorithmsItems } from "../ItemLists/SolvAlgorithmsItems";
-import Dropdown from './Dropdown/Dropdown'
 import { ReactComponent as Logo } from "../../images/MazeGen&SolveLogo.svg"
 import './Navbar.css'
 

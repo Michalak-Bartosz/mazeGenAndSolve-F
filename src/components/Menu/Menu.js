@@ -1,13 +1,14 @@
 import { React, useState } from "react";
-import { GenAlgorithmsItems } from "../../ItemLists/GenAlgorithmsItems";
-import { Link } from 'react-router-dom';
+import { GenAlgorithmsItems } from "../ItemLists/GenAlgorithmsItems";
 import "./Menu.css"
-import GeneratePage from "../../Pages/GeneratePage";
+import useApi from "../../api/useApi";
 
 const Menu = () => {
+    const api = useApi();
+
     const [width, setWidth] = useState(2);
     const [height, setHeight] = useState(2);
-    const [algorithm, setAlgorithm] = useState("")
+    const [algorithm, setAlgorithm] = useState("RandomDFS")
 
     const handleWidthChange = (event) => {
         setWidth(event.target.value)
@@ -22,12 +23,20 @@ const Menu = () => {
     }
 
     const handleSubmit = (event) => {
-        const mazeParams = {
-            width: width,
+        event.preventDefault()
+        const mazeBody = {
             height: height,
-            generateAlgorithm: algorithm
+            width: width,
+            algorithmType: algorithm
         }
-        console.log(mazeParams)
+        console.log(mazeBody)
+        sendMazeBody(mazeBody)
+    }
+
+    async function sendMazeBody(mazeBody) {
+        try {
+            await api.addMaze(mazeBody);
+        } catch (error) { }
     }
 
     return (
@@ -69,7 +78,7 @@ const Menu = () => {
                         return (<option
                             className={item.cName}
                             key={index}
-                            value={item.title}>
+                            value={item.value}>
                             {item.title}
                         </option>)
                     })}
