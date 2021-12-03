@@ -1,14 +1,15 @@
 import React from "react";
+import "./Page.css"
 
-function RaportPage() {
+function InfomrationPage() {
 
     return (
         <div className="page-backgroud">
             <div className="page">
-                RAPORT PAGE
+                Infomration Page
             </div>
         </div>
     )
 }
 
-export default RaportPage
+export default InfomrationPage

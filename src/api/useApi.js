@@ -11,10 +11,20 @@ const useApi = () => {
         throw error;
     }
 
-    async function getMaze() {
+    async function getMaze(mazeId) {
         try {
-            const maze = await httpApi.get("maze");
+            const maze = await httpApi.get(`${mazeId}`);
             return maze;
+        } catch (error) {
+            handleErrors(error);
+        }
+    }
+
+    
+    async function getMazeCells(mazeId) {
+        try {
+            const mazeCells = await httpApi.get(`${mazeId}/cells`);
+            return mazeCells;
         } catch (error) {
             handleErrors(error);
         }
@@ -38,10 +48,19 @@ const useApi = () => {
         }
     }
 
+    async function deleteMaze(mazeId) {
+        try {
+            await httpApi.remove(`${mazeId}`);
+        } catch (error) {
+            handleErrors(error);
+        }
+    }
     return {
         getMaze,
+        getMazeCells,
         getMazes,
-        addMaze
+        addMaze,
+        deleteMaze
     };
 }
 

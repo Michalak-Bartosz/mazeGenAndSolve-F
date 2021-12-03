@@ -7,9 +7,10 @@
 }
 
 .page-backgroud {
-    position: fixed;
     display: flex;
+    position: absolute;
     background: #776274;
     height: 100%;
     width: 100%;
+    overflow-y: auto;
 }

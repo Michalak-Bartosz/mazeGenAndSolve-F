@@ -1,0 +1,34 @@
+.maze-card {
+    display: grid;
+    grid-template-columns: 15% 15% 15% 40% auto;
+    margin-bottom: 1rem;
+    border-style: solid;
+    border-radius: 4px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    align-items: center;
+    cursor: pointer;
+}
+
+.maze-card:hover {
+    background: #A4BAB7;
+}
+
+.delete-maze-button {
+    border: black;
+    border-style: solid;
+    border-radius: 4px;
+    height: min-content;
+    width: min-content;
+    padding: 0.1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    color: black;
+    background: #ff4542;
+}
+
+.delete-maze-button:hover {
+    background: #80100e;
+}

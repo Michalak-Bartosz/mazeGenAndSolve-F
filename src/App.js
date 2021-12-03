@@ -6,6 +6,7 @@ import RaportPage from './components/Pages/RaportPage';
 import GeneratePage from './components/Pages/GeneratePage';
 import SolvePage from './components/Pages/SolvePage';
 import HomePage from './components/Pages/HomePage';
+import InfomrationPage from './components/Pages/InformationPage';
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
       <Navbar />
       <Route path="/" component={HomePage} />
       <Route path="/raports" component={RaportPage}/>
+      <Route path="/information" component={InfomrationPage}/>
       <Route path="/generate" component={GeneratePage}/>
       <Route path="/solve" component={SolvePage}/>
     </Router>

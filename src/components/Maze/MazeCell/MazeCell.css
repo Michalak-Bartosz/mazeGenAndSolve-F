@@ -1,0 +1,52 @@
+.maze-cell {
+    width: 50px;
+    height: 50px;
+    background-color: #E6CCBE;
+    border-style: solid;
+    border-color: #5A5353;
+    border-width: 5px;
+    animation: show-animation 2s;
+}
+
+.start-maze-cell {
+    max-width: 50px;
+    max-height: 50px;
+    background-color: #008a1e;
+    border-style: solid;
+    border-color: #5A5353;
+    border-width: 5px;
+}
+
+.end-maze-cell {
+    width: 50px;
+    height: 50px;
+    background-color: #1f1f1f;
+    border-style: solid;
+    border-color: #5A5353;
+    border-width: 5px;
+}
+
+.visited-maze-cell {
+    width: 50px;
+    height: 50px;
+    background-color: #fc5800;
+    border-style: solid;
+    border-color: #5A5353;
+    border-width: 5px;
+}
+
+@keyframes show-animation {
+    from {
+        visibility: hidden;
+        opacity: 0;
+    }
+
+    to {
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+/* Solve path #C8CC92 */
+/* Searched path #A07178 */
+/* Tmp color #776274 */

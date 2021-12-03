@@ -1,0 +1,21 @@
+.maze {
+    display: grid;
+    background: #A4BAB7;
+    border-radius: 10px;
+    padding: 1rem;
+    width: fit-content;
+    height: fit-content;
+    align-self: center;
+}
+
+.maze-background {
+
+    background: #E6CCBE;
+    border-style: solid;
+    border-color: #5A5353;
+    border-radius: 10px;
+    border-width: 5px;
+    width: fit-content;
+    height: fit-content;
+    align-self: center;
+}

@@ -7,11 +7,10 @@ import './Navbar.css'
 function Navbar() {
 
     const [menuClicked, setMenuClicked] = useState(false)
-    const [isMobile, setIsMobile] = useState(false)
+    const [isMobile, setIsMobile] = useState()
 
     const handleMenuClicked = () => setMenuClicked(!menuClicked)
 
-    //choose the screen size 
     const handleResize = () => {
         if (window.innerWidth < 1600) {
             setIsMobile(true)
@@ -24,7 +23,6 @@ function Navbar() {
         }
     }
 
-    // create an event listener
     useEffect(() => {
         window.addEventListener("resize", handleResize)
     })
