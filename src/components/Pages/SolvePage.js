@@ -6,7 +6,6 @@ const SolvePage = () => {
         <div className="page-backgroud">
             <div className="page">
                 SOLVE PAGE
-                <MazeList />
             </div>
         </div>
     );

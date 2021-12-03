@@ -43,7 +43,6 @@ function GeneratePage(props) {
                 <Maze
                     maze={maze}
                     cells={cells} />
-                <MazeList />
             </div>
         </div>
     )

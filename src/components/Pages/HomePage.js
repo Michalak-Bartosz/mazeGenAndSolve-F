@@ -9,7 +9,6 @@ function HomePage() {
         <div className="page-backgroud">
             <div className="page">
                 <Menu />
-                <MazeList />
             </div>
         </div>
     )

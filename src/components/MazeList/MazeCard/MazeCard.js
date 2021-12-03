@@ -7,14 +7,23 @@ const MazeCard = (props) => {
     const api = useApi();
     let history = useHistory();
 
-    const handleItemClicked = () => {
+    const handleItemClicked = (event) => {
+        event.preventDefault();
         history.push("/generate/?mazeId=" + props.id)
         window.location.reload();
     }
 
     const handleDeleteClicked = (event) => {
         event.preventDefault();
+        event.stopPropagation();
         deleteMaze(props.id)
+        const queryParams = new URLSearchParams(window.location.search);
+        const mazeId = queryParams.get('mazeId');
+     
+        if(props.id == mazeId) {
+            history.push("/")
+            console.log("PROPS: " + props.id + "\n MAZE: " + mazeId)
+        }
     }
 
     async function deleteMaze(mazeId) {
@@ -39,7 +48,7 @@ const MazeCard = (props) => {
                 {props.algorithmType}
             </h3>
             <div className="delete-maze-button"
-                onClick={(event) => { handleDeleteClicked(event) }}>
+                onClick={handleDeleteClicked}>
                 <i className="fas fa-trash"></i>
             </div>
         </li >
