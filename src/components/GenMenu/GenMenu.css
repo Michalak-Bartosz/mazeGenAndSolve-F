@@ -100,17 +100,17 @@
     padding-left: 1rem;
 }
 
-.dropdown-item {
+.gen-dropdown-item {
     color: white;
     background: hsl(172, 14%, 20%);   
 }
 
-.dropdown-item:checked {
+.gen-dropdown-item:checked {
     color: white;
     background-color: black;   
 }
 
-.submit-button {
+.gen-button {
     display: flex;
     justify-content: center;
     margin: auto;
@@ -125,6 +125,6 @@
     box-shadow: inset 0 0 1em #A4BAB7;
 }
 
-.submit-button:hover {
-    background: #2a5855;
+.gen-button:hover {
+    background: #052b27;
 }

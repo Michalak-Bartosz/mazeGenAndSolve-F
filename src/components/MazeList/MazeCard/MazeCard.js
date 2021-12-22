@@ -1,35 +1,24 @@
 import React from "react";
-import useApi from "../../../api/useApi";
-import { useHistory } from "react-router-dom";
 import "./MazeCard.css";
+import { useHistory } from "react-router-dom";
 
 const MazeCard = (props) => {
-    const api = useApi();
     let history = useHistory();
+    const queryParams = new URLSearchParams(window.location.search);
+    const mazeId = queryParams.get('mazeId');
 
     const handleItemClicked = (event) => {
         event.preventDefault();
         history.push("/generate/?mazeId=" + props.id)
-        window.location.reload();
     }
 
     const handleDeleteClicked = (event) => {
         event.preventDefault();
         event.stopPropagation();
-        deleteMaze(props.id)
-        const queryParams = new URLSearchParams(window.location.search);
-        const mazeId = queryParams.get('mazeId');
-     
-        if(props.id == mazeId) {
+        const mazeIdToDelete = props.id.toString()
+        if (mazeIdToDelete === mazeId)
             history.push("/")
-            console.log("PROPS: " + props.id + "\n MAZE: " + mazeId)
-        }
-    }
-
-    async function deleteMaze(mazeId) {
-        try {
-            await api.deleteMaze(mazeId);
-        } catch (error) { }
+        props.deleteMaze(props.id)
     }
 
     return (

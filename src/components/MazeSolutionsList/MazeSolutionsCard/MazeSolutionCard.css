@@ -1,0 +1,35 @@
+.maze-solution-card {
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    margin-bottom: 1rem;
+    border-style: solid;
+    border-radius: 4px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    align-items: center;
+    cursor: pointer;
+}
+
+.maze-solution-card:hover {
+    background: #A4BAB7;
+}
+
+.maze-delete-solution-button {
+    border: black;
+    border-style: solid;
+    border-radius: 4px;
+    height: min-content;
+    width: min-content;
+    margin: auto;
+    padding: 0.1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    color: black;
+    background: #ff4542;
+}
+
+.maze-delete-solution-button:hover {
+    background: #80100e;
+}

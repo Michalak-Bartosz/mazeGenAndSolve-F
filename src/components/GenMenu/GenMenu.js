@@ -1,14 +1,22 @@
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 import { GenAlgorithmsItems } from "../ItemLists/GenAlgorithmsItems";
-import "./Menu.css"
+import { useHistory } from "react-router-dom";
+import "./GenMenu.css"
 import useApi from "../../api/useApi";
 
-const Menu = () => {
+const GenMenu = () => {
     const api = useApi();
+    let history = useHistory();
 
-    const [width, setWidth] = useState(2);
-    const [height, setHeight] = useState(2);
+    const [width, setWidth] = useState(10);
+    const [height, setHeight] = useState(10);
     const [algorithm, setAlgorithm] = useState("RandomDFS")
+    const [newMaze, setNewMaze] = useState(null)
+
+    useEffect(() => {
+        if(newMaze != null)
+            history.push("/generate/?mazeId=" + newMaze.id)
+    }, [newMaze]);
 
     const handleWidthChange = (event) => {
         setWidth(event.target.value)
@@ -29,13 +37,13 @@ const Menu = () => {
             width: width,
             algorithmType: algorithm
         }
-        console.log(mazeBody)
-        sendMazeBody(mazeBody)
+        createMaze(mazeBody)
     }
 
-    async function sendMazeBody(mazeBody) {
+    async function createMaze(mazeBody) {
         try {
-            await api.addMaze(mazeBody);
+            await api.createMaze(mazeBody)
+                .then(result => setNewMaze(result))
         } catch (error) { }
     }
 
@@ -84,11 +92,11 @@ const Menu = () => {
                     })}
                 </select>
             </div>
-            <input className="submit-button"
+            <input className="gen-button"
                 type="submit"
                 value="Generate" />
         </form>
     );
 }
 
-export default Menu
+export default GenMenu

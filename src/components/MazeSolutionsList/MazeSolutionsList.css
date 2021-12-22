@@ -1,0 +1,39 @@
+.maze-solution-list-wrapper {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+    margin-top: 2rem;
+    border-radius: 8px;
+    background: #EFF2C0;
+    padding: 1rem;
+    min-width: max-content;
+    box-shadow: #000 0px 0px 5px, #000 0px 0px 5px, #000 0px 0px 5px,
+        #000 0px 0px 5px, #000 0px 0px 5px, #000 0px 0px 5px;
+}
+
+.maze-solution-list-header {
+    display: flex;
+    flex-direction: row;
+}
+
+.maze-solution-list {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+    white-space: nowrap;
+    animation: show-animation 2s;
+}
+
+.maze-solution-list-column-name {
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    margin-bottom: 1rem;
+    border-style: solid;
+    border-radius: 4px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    align-items: center;
+    background: #c41411;
+}

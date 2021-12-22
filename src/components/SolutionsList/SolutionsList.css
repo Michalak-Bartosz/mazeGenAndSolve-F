@@ -1,0 +1,111 @@
+.solution-list-wrapper {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+    margin-top: 2rem;
+    border-radius: 8px;
+    background: #EFF2C0;
+    padding: 1rem;
+    min-width: max-content;
+    box-shadow: #000 0px 0px 5px, #000 0px 0px 5px, #000 0px 0px 5px,
+        #000 0px 0px 5px, #000 0px 0px 5px, #000 0px 0px 5px;
+}
+
+.solution-list-header {
+    display: flex;
+    flex-direction: row;
+}
+
+.solution-list {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+    white-space: nowrap;
+    animation: show-animation 2s;
+}
+
+.solution-list-column-name {
+    display: grid;
+    grid-template-columns: 10% 10% 10% 10% 20% 20% 10% 10%;
+    margin-bottom: 1rem;
+    border-style: solid;
+    border-radius: 4px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    align-items: center;
+    background: #c41411;
+}
+
+.compare-container {
+    display: flex;
+    margin: auto;
+    align-items: center;
+    align-self: center;
+}
+
+.compare-button-disiabled {
+    display: flex;
+    margin: auto;
+    background: #3c4444;
+    padding: 0.5rem;
+    height: min-content;
+    width: min-content;
+    align-items: center;
+    border-radius: 10px;
+    border-style: solid;
+    border-width: 3px;
+    box-shadow: inset 0 0 1em #808080, 0 0 0.7em black;
+    cursor: not-allowed;
+}
+
+.compare-button {
+    display: flex;
+    margin: auto;
+    background: #368F8B;
+    padding: 0.5rem;
+    height: min-content;
+    width: min-content;
+    align-items: center;
+    border-radius: 10px;
+    border-style: solid;
+    border-width: 3px;
+    box-shadow: inset 0 0 1em #226966, 0 0 0.7em black;
+    cursor: pointer;
+}
+
+.compare-button:hover {
+    box-shadow: inset 0 0 2em #042e2c, 0 0 0.7em black;
+}
+
+.compare-button:hover>.compare-icon {
+    animation: shake-animation 0.4s ease-in-out 0.1s;
+    animation-iteration-count: 3;
+}
+
+.compare-button-disiabled:hover>.compare-icon {
+    animation: shake-animation 0.4s ease-in-out 0.1s;
+    animation-iteration-count: 3;
+}
+
+.compare-icon:hover {
+    animation: shake-animation 0.4s ease-in-out 0.1s;
+    animation-iteration-count: 3;
+}
+
+.compare-icon {
+    display: flex;
+    margin-left: 0.5rem;
+}
+
+.delete-label {
+    display: flex;
+    margin: auto;
+}
+
+.compare-info {
+    cursor: pointer;
+    color: rgb(23, 23, 151);
+    margin-right: 1rem;
+}

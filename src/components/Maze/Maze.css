@@ -6,10 +6,12 @@
     width: fit-content;
     height: fit-content;
     align-self: center;
+    box-shadow: 0 0 2rem black;
+    border-style: solid;
+    border-width: 5px;
 }
 
 .maze-background {
-
     background: #E6CCBE;
     border-style: solid;
     border-color: #5A5353;
@@ -18,4 +20,30 @@
     width: fit-content;
     height: fit-content;
     align-self: center;
+    justify-self: center;
+}
+
+.set-cells-wrapper {
+    display: flex;
+    padding: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    background: #EFF2C0;
+    border-radius: 10px;
+    border-style: solid;
+    margin-bottom: 1rem;
+    width: max-content;
+    align-items: center;
+    justify-self: start;
+}
+
+.set-cells-info {
+    cursor: pointer;
+    color: rgb(4, 4, 100);
+    margin-right: 1rem;
+}
+
+.signs-wrapper {
+    display: flex;
+    margin-left: 1rem;
 }

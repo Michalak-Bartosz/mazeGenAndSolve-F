@@ -3,16 +3,21 @@ import useApi from "../../api/useApi";
 import MazeCard from "./MazeCard/MazeCard";
 import { GenAlgorithmsItems } from "../ItemLists/GenAlgorithmsItems";
 import MazeListColumnName from "./MazeListColumnName";
+import { useHistory } from "react-router-dom";
 import "./MazeList.css";
 
 const MazeList = () => {
     const api = useApi();
+    let history = useHistory();
+    history.listen(() => setListClicked(false))
+
     const [mazes, setMazes] = useState([])
     const [listClicked, setListClicked] = useState(false)
+    const [isDelete, setIsDelete] = useState(false)
 
     useEffect(() => {
         getMazes();
-    }, [listClicked]);
+    }, [listClicked, isDelete]);
 
     async function getMazes() {
         try {
@@ -21,17 +26,22 @@ const MazeList = () => {
         } catch (error) { }
     }
 
+    async function deleteMaze(mazeId) {
+        try {
+            await api.deleteMaze(mazeId);
+        } catch (error) { }
+        setIsDelete(!isDelete)
+    }
+
     const normalizeAlgorithmName = (algorithmValue) => {
         const algorithmItem = GenAlgorithmsItems.find(({ value }) => value === algorithmValue)
         return algorithmItem.title;
     }
 
-
     const handleListClicked = () => setListClicked(!listClicked)
 
-
     return (
-        <dvi className="margin">
+        <div className="margin">
             <div className="wrapper">
                 <i className={listClicked ?
                     "fas fa-angle-double-down fa-4x arrow-icon" :
@@ -52,7 +62,7 @@ const MazeList = () => {
                     </div>
                     <ul className={listClicked ? "maze-list" : "maze-list-hide"}>
                         <MazeListColumnName />
-                        {mazes.map((item, index) => {
+                        {mazes.length > 0 ? mazes.map((item, index) => {
                             return (
                                 <MazeCard
                                     key={index}
@@ -61,12 +71,16 @@ const MazeList = () => {
                                     width={item.width}
                                     algorithmType={normalizeAlgorithmName(item.algorithmType)}
                                     mazes={mazes}
+                                    deleteMaze={deleteMaze}
                                 />)
-                        })}
+                        }) :
+                            <h2 className="none-records">
+                                NONE MAZES
+                            </h2>}
                     </ul>
                 </div>
             </div>
-        </dvi>
+        </div>
     )
 }
 

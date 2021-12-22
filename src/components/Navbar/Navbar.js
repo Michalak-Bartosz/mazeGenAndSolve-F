@@ -1,31 +1,9 @@
-import { React, useState, useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import { MenuItems } from './MenuItems'
 import { ReactComponent as Logo } from "../../images/MazeGen&SolveLogo.svg"
 import './Navbar.css'
 
 function Navbar() {
-
-    const [menuClicked, setMenuClicked] = useState(false)
-    const [isMobile, setIsMobile] = useState()
-
-    const handleMenuClicked = () => setMenuClicked(!menuClicked)
-
-    const handleResize = () => {
-        if (window.innerWidth < 1600) {
-            setIsMobile(true)
-            if (menuClicked === true)
-                setMenuClicked(false)
-        } else {
-            setIsMobile(false)
-            if (menuClicked === false)
-                setMenuClicked(true)
-        }
-    }
-
-    useEffect(() => {
-        window.addEventListener("resize", handleResize)
-    })
 
     return (
         <>
@@ -35,36 +13,11 @@ function Navbar() {
                     MazeGen&Solve
                 </Link>
                 <div className="navbar-menu">
-                    <div className={menuClicked ? "navbar-menu-active" : "navbar-menu-hide"}>
-                        <ul className={isMobile ? "navbar-menu-mobile" : "navbar-menu-full"}>
-                            {MenuItems.map((item, index) => {
-                                return (<li key={index} className="navbar-links-li">
-                                    <Link to={item.url} className={item.cName} >
-                                        {item.title}
-                                    </Link>
-                                </li>)
-                            })}
-                            {/* <li>
-                                <Dropdown
-                                    title="Generate Algorithms"
-                                    items={GenAlgorithmsItems} />
-                            </li>
-                            <li>
-                                <Dropdown
-                                    title="Solve Algorithms"
-                                    items={SolvAlgorithmsItems} />
-                            </li> */}
-                        </ul>
-                    </div>
-                    <div className={isMobile ? "navbar-menu-icon" : "navbar-menu-icon-hide"}
-                        onClick={handleMenuClicked}>
-                        <i className={menuClicked ? "fas fa-times" : "fas fa-bars"}></i>
-                    </div>
-                    <Link className="generate-link" to="/generate">
-                        Generate
+                    <Link className="generate-link" to="/">
+                        Generate Maze
                     </Link>
-                    <Link className="solve-link" to="/solve">
-                        Solve
+                    <Link className="solve-link" to="/solutions">
+                        All Solutions
                     </Link>
                 </div>
             </nav>

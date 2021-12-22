@@ -1,0 +1,239 @@
+.maze-header {
+    display: flex;
+    background: #EFF2C0;
+    text-align: center;
+    padding: 1rem;
+    border-radius: 8px;
+    border-style: solid;
+    border-width: 5px;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+    justify-content: center;
+    min-width: min-content;
+    box-shadow: 0 0 1em black;
+}
+
+.main-information {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    height: 100%;
+}
+
+.maze-header-title {
+    display: flex;
+    align-items: center;
+    width: max-content;
+}
+
+.show-solutions-container {
+    align-content: center;
+    background: #c41411;
+    border-radius: 10px;
+    border-style: solid;
+    border-width: 3px;
+    padding: 0.2rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    min-width: max-content;
+    cursor: pointer;
+    box-shadow: inset 0 0 1em #722b2b, 0 0 0.7em black;
+}
+
+.show-solutions-container:hover {
+    box-shadow: inset 0 0 2em #722b2b, 0 0 0.7em black;
+}
+
+.show-solutions-container:hover > .solution-icon {
+    animation: shake-animation 0.4s ease-in-out 0.1s;
+    animation-iteration-count: 3;
+}
+
+.solution-icon:hover {
+    animation: shake-animation 0.4s ease-in-out 0.1s;
+    animation-iteration-count: 3;
+}
+
+.split-v {
+    display: flex;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    border-style: solid;
+    border-width: 0px;
+    border-left-width: 5px;
+}
+
+.split-h {
+    display: flex;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border-style: solid;
+    border-width: 0px;
+    border-bottom-width: 5px;
+}
+
+.label {
+    display: flex;
+    color: #5E747F;
+}
+
+.maze-id {
+    display: flex;
+    margin-left: 1rem;
+}
+
+.solv-container {
+    display: flex;
+    flex-direction: row;
+    width: max-content;
+    padding: 1rem;
+    background: #776274;
+    border-radius: 10px;
+    border-style: solid;
+    border-width: 5px;
+}
+
+.solv-algorithm {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0.5rem;
+    align-self: center;
+}
+
+.solv-title {
+    text-align: center;
+    margin-right: 1rem;
+    max-width: max-content;
+    font-size: 24px;
+    align-self: center;
+    margin-bottom: 1rem;
+}
+
+.solv-algorithm-select {
+    cursor: pointer;
+    max-width: min-content;
+    max-height: min-content;
+    font-size: 24px;
+    background: #5E747F;
+    padding: 0.2rem;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    border-radius: 10px;
+    border-style: solid;
+    border-width: 3px;
+    border-color: black;
+    align-self: center;
+    box-shadow: 0 0 1em black;
+}
+
+.solv-dropdown-item {
+    color: white;
+    background: #273a44;
+}
+
+.solv-dropdown-item:checked {
+    color: white;
+    background-color: black;
+}
+
+.solv-button-containder {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: min-content;
+    height: max-content;
+    border-radius: 10px;
+    border-style: solid;
+    border-width: 3px;
+    padding: 1rem;
+    background: #c41411;
+    box-shadow: inset 0 0 1em #722b2b, 0 0 1em black;
+    cursor: pointer;
+    align-self: center;
+}
+
+.solv-button-containder:hover {
+    box-shadow: inset 0 0 1em #330605, 0 0 1em black;
+}
+
+.solv-button-title {
+    color: inherit;
+    background: #c41411;
+    border: none;
+    font-size: 24px;
+    font-weight: bolder;
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+}
+
+.solv-button-containder:hover > .solve-icon {
+    animation: shake-animation 0.6s ease-in-out 0.4s;
+    animation-iteration-count: 2;
+}
+
+.solve-icon:hover {
+    animation: shake-animation 0.6s ease-in-out 0.4s;
+    animation-iteration-count: 2;
+}
+
+.additional-information {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+    height: 100%;
+}
+
+.additional-information-header {
+    width: 100%;
+}
+
+.additional-information-data {
+    display: flex;
+}
+
+.maze-height {
+    display: flex;
+    margin-left: 1rem;
+}
+
+.maze-width {
+    display: flex;
+    margin-left: 1rem;
+}
+
+.maze-gen-algorithm {
+    display: flex;
+    margin-left: 1rem;
+}
+
+@keyframes shake-animation {
+    0% {
+        transform: rotate(0deg)
+    }
+
+    15% {
+        transform: rotate(10deg)
+    }
+
+    30% {
+        transform: rotate(-10deg);
+    }
+
+    45% {
+        transform: rotate(0deg);
+    }
+
+    60% {
+        transform: rotate(15deg)
+    }
+
+    75% {
+        transform: rotate(-15deg)
+    }
+
+    100% {
+        transform: rotate(0deg)
+    }
+
+}

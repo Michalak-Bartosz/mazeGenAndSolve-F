@@ -16,31 +16,45 @@ const MazeCell = (props) => {
         marginTop: walls.get("TOP").visible ? "0px" : "5px",
         marginBottom: walls.get("BOTTOM").visible ? "0px" : "5px",
         marginLeft: walls.get("LEFT").visible ? "0px" : "5px",
-        marginRight: walls.get("RIGHT").visible ? "0px" : "5px"
+        marginRight: walls.get("RIGHT").visible ? "0px" : "5px",
+
+        animation: "show-animation 2s",
     };
 
+    const animationStyle = {
+        animation: "show-animation 2s",
+        animationDelay: cell.number/8 + "s",
+        animationFillMode: "both"
+    }
+
     const getCell = () => {
-        return <div
+        return (<div
             style={cellStyle}
-            className={getClassName()}
-            onClick={handleOnClick} />
+            className="maze-cell"
+            onClick={handleOnClick} >
+            <div style={animationStyle} className={getClassName()}>
+                <h3>
+                    {cell.number}
+                </h3>
+            </div>
+        </div>)
     }
 
     const getClassName = () => {
         switch (cellState) {
             case 'START':
-                return "start-maze-cell"
+                return "start-maze-sign"
             case 'END':
-                return "end-maze-cell"
+                return "end-maze-sign"
             case 'VISITED':
-                return "visited-maze-cell"
+                return "visited-maze-sign"
             default:
-                return "maze-cell"
+                return ""
         }
     }
 
     const handleOnClick = (event) => {
-        console.log(cell.id)
+        props.handleCellClicked(cell.id)
     }
 
     return (

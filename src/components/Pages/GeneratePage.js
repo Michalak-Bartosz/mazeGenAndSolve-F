@@ -1,7 +1,6 @@
 import { React, useState, useEffect } from "react";
 import useApi from "../../api/useApi";
-import MazeList from "../MazeList/MazeList";
-import MazeHeader from "../MazeHeader/MazeHeader"
+import GenMazeHeader from "../MazeHeader/GenMazeHeader"
 import "./Page.css"
 import Maze from "../Maze/Maze";
 
@@ -13,11 +12,13 @@ function GeneratePage(props) {
 
     const [cells, setCells] = useState([])
     const [maze, setMaze] = useState([])
+    const [startCell, setStartCell] = useState(null)
+    const [endCell, setEndCell] = useState(null)
 
     useEffect(() => {
         getMazeCells();
         getMazeParams();
-    }, []);
+    }, [mazeId]);
 
     async function getMazeCells() {
         try {
@@ -33,16 +34,29 @@ function GeneratePage(props) {
         } catch (error) { }
     }
 
+    const handleSetStartCell = (cell) => {
+        setStartCell(cell)
+    }
+
+    const handleSetEndCell = (cell) => {
+        setEndCell(cell)
+    }
+
     return (
         <div className="page-backgroud">
             <div className="page">
-                <MazeHeader
+                <GenMazeHeader
                     mazeId={maze.id}
                     height={maze.height}
-                    width={maze.width} />
+                    width={maze.width}
+                    genAlgorithmType={maze.algorithmType}
+                    startCell={startCell}
+                    endCell={endCell} />
                 <Maze
                     maze={maze}
-                    cells={cells} />
+                    cells={cells}
+                    handleSetStartCell={handleSetStartCell}
+                    handleSetEndCell={handleSetEndCell} />
             </div>
         </div>
     )

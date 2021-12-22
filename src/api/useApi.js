@@ -20,10 +20,19 @@ const useApi = () => {
         }
     }
 
-    
+
     async function getMazeCells(mazeId) {
         try {
             const mazeCells = await httpApi.get(`${mazeId}/cells`);
+            return mazeCells;
+        } catch (error) {
+            handleErrors(error);
+        }
+    }
+
+    async function getSolveMazeCells(mazeId, solveId) {
+        try {
+            const mazeCells = await httpApi.get(`${mazeId}/${solveId}`);
             return mazeCells;
         } catch (error) {
             handleErrors(error);
@@ -39,10 +48,37 @@ const useApi = () => {
         }
     }
 
-    async function addMaze(mazeBody) {
+    async function getSolutions(mazeId) {
         try {
-            const maze = await httpApi.post("maze", mazeBody);
+            const solutions = await httpApi.get(`${mazeId}/solve`);
+            return solutions
+        } catch (error) {
+            handleErrors(error);
+        }
+    }
+
+    async function getSolution(solveId) {
+        try {
+            const solution = await httpApi.get(`solve/${solveId}`);
+            return solution
+        } catch (error) {
+            handleErrors(error);
+        }
+    }
+
+    async function createMaze(mazeBody) {
+        try {
+            const maze = await httpApi.post("create", mazeBody);
             return maze;
+        } catch (error) {
+            handleErrors(error);
+        }
+    }
+
+    async function solveMaze(solveParams) {
+        try {
+            const solveMaze = await httpApi.post("solve", solveParams);
+            return solveMaze;
         } catch (error) {
             handleErrors(error);
         }
@@ -50,17 +86,32 @@ const useApi = () => {
 
     async function deleteMaze(mazeId) {
         try {
-            await httpApi.remove(`${mazeId}`);
+            await httpApi.remove(`maze/${mazeId}`);
         } catch (error) {
             handleErrors(error);
         }
     }
+
+
+    async function deleteSolve(solveId) {
+        try {
+            await httpApi.remove(`solve/${solveId}`);
+        } catch (error) {
+            handleErrors(error);
+        }
+    }
+
     return {
         getMaze,
+        getSolution,
         getMazeCells,
+        getSolveMazeCells,
         getMazes,
-        addMaze,
-        deleteMaze
+        getSolutions,
+        createMaze,
+        solveMaze,
+        deleteMaze,
+        deleteSolve
     };
 }
 

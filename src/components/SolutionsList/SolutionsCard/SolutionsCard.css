@@ -1,0 +1,55 @@
+.solution-card {
+    display: grid;
+    grid-template-columns: 10% 10% 10% 10% 20% 20% 10% 10%;
+    margin-bottom: 1rem;
+    border-style: solid;
+    border-radius: 4px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    align-items: center;
+    cursor: pointer;
+}
+
+.solution-card:hover {
+    background: #A4BAB7;
+}
+
+.delete-solution-button {
+    border: black;
+    border-style: solid;
+    border-radius: 4px;
+    height: min-content;
+    width: min-content;
+    padding: 0.1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    color: black;
+    margin: auto;
+    background: #ff4542;
+}
+
+.delete-solution-button:hover {
+    background: #80100e;
+}
+
+.compare-checkbox-wrapper {
+    display: flex;
+    width: min-content;
+    height: min-content;
+    margin: auto;
+    border-style: solid;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.compare-checkbox {
+    display: flex;
+    width: 32px;
+    height: 32px;
+    margin: auto;
+    border-style: solid;
+    border-width: 20px;
+    cursor: pointer;
+}

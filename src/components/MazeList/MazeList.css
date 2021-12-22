@@ -50,19 +50,20 @@
     padding: 0.3rem;
     margin-right: 2rem;
     cursor: pointer;
+    box-shadow: 0 0 1em black;
 }
 
 .reload-container:hover {
     background: #883200;
+    
 }
 
 .reload-title {
     margin-right: 1rem;
 }
 
-.reload-icon {
+.reload-container:hover > .reload-icon {
     animation: reload-animation 2s;
-    animation-timing-function: ease;
 }
 
 .maze-list-column-name {
@@ -76,6 +77,18 @@
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
     background: #EFF2C0;
+}
+
+.none-records {
+    display: flex;
+    margin-bottom: 1rem;
+    border-style: solid;
+    border-radius: 4px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    text-align: center;
 }
 
 .maze-list-title {
