@@ -42,6 +42,7 @@ const Maze = (props) => {
                     cell.cellState = "VISITED"
             }
         }
+        console.log(cell.walls)
     }
 
     const handleCellClicked = (cellId) => {

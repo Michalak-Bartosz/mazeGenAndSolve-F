@@ -8,15 +8,15 @@ const MazeCell = (props) => {
     const walls = new Map(Object.entries(cell.walls))
 
     const cellStyle = {
-        borderTopWidth: walls.get("TOP").visible ? "5px" : "0px",
-        borderBottomWidth: walls.get("BOTTOM").visible ? "5px" : "0px",
-        borderLeftWidth: walls.get("LEFT").visible ? "5px" : "0px",
-        borderRightWidth: walls.get("RIGHT").visible ? "5px" : "0px",
+        borderTopWidth: walls.get("TOP").isVisible ? "5px" : "0px",
+        borderBottomWidth: walls.get("BOTTOM").isVisible ? "5px" : "0px",
+        borderLeftWidth: walls.get("LEFT").isVisible ? "5px" : "0px",
+        borderRightWidth: walls.get("RIGHT").isVisible ? "5px" : "0px",
 
-        marginTop: walls.get("TOP").visible ? "0px" : "5px",
-        marginBottom: walls.get("BOTTOM").visible ? "0px" : "5px",
-        marginLeft: walls.get("LEFT").visible ? "0px" : "5px",
-        marginRight: walls.get("RIGHT").visible ? "0px" : "5px",
+        marginTop: walls.get("TOP").isVisible ? "0px" : "5px",
+        marginBottom: walls.get("BOTTOM").isVisible ? "0px" : "5px",
+        marginLeft: walls.get("LEFT").isVisible ? "0px" : "5px",
+        marginRight: walls.get("RIGHT").isVisible ? "0px" : "5px",
 
         animation: "show-animation 2s",
     };

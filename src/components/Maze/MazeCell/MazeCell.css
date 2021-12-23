@@ -43,9 +43,9 @@
     height: 40px;
     margin: auto;
     border-radius: 100px;
-    background-color: #fc5800;
+    background-color: #ff5100;
     border-style: solid;
-    box-shadow: inset #2c0f00 0px 0px 15px;
+    box-shadow: inset #533c00 0px 0px 10px;
 }
 
 @keyframes show-animation {

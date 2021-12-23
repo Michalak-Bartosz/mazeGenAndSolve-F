@@ -54,7 +54,7 @@ const SolutionsCard = (props) => {
                 {props.maze.height}
             </h3>
             <h3>
-                {normalizeAlgorithmName(props.maze.algorithmType)}
+                {normalizeAlgorithmName(props.maze.genAlgorithmType)}
             </h3>
             <h3>
                 {props.solvAlgorithmType}

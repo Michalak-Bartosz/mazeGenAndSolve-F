@@ -1,6 +1,6 @@
 .solution-card {
     display: grid;
-    grid-template-columns: 10% 10% 10% 10% 20% 20% 10% 10%;
+    grid-template-columns: 10% 10% 10% 10% 20% 15% 15% 10%;
     margin-bottom: 1rem;
     border-style: solid;
     border-radius: 4px;

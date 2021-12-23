@@ -21,7 +21,7 @@ function GeneratePage(props) {
         getMazeCells();
         getMazeParams();
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+    }, [mazeId]);
 
     async function getMazeCells() {
         try {

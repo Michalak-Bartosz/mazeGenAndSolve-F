@@ -45,10 +45,10 @@ const SolutionsListColumnName = (props) => {
                 Height
             </h3>
             <h3>
-                Type of Generating Algorithm
+                Generating Algorithm
             </h3>
             <h3>
-                Type of Solving Algorithm
+                Solving Algorithm
             </h3>
             <div className="compare-container">
                 {<i className="fas fa-question-circle fa-2x compare-info"
