@@ -3,6 +3,7 @@ import useApi from "../../api/useApi";
 import { GenAlgorithmsItems } from "../ItemLists/GenAlgorithmsItems";
 import Maze from "../Maze/Maze";
 import SolvMazeHeader from "../MazeHeader/SolvMazeHeader";
+import MazeSolutionsList from "../MazeSolutionsList/MazeSolutionsList";
 
 function RaportPage() {
     const api = useApi()
@@ -12,6 +13,7 @@ function RaportPage() {
 
     useEffect(() => {
         getSolveIdList()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     const getSolveIdList = () => {
@@ -24,8 +26,8 @@ function RaportPage() {
         try {
             const mazeSolution = await api.getSolution(solutionId)
             const maze = await api.getMaze(mazeSolution.mazeId)
-            const solveCells = await api.getSolveMazeCells(mazeSolution.mazeId, mazeSolution.solveId);
-            const cells = await api.getMazeCells(mazeSolution.mazeId);
+            const solveCells = await api.getSolveMazeCells(mazeSolution.mazeId, mazeSolution.solveId)
+            const cells = await api.getMazeCells(mazeSolution.mazeId)
             setSolutionList(prevList => [...prevList, { maze, mazeSolution, cells, solveCells }])
         } catch (error) { }
     }
@@ -43,18 +45,24 @@ function RaportPage() {
                         key={index1}>
                         <SolvMazeHeader
                             key={index2}
-                            mazeId={item['maze'].id}
-                            solveId={item['mazeSolution'].solveId}
-                            stepsNumber={item["solveCells"].lenght}
-                            solveAlg={item["mazeSolution"].solveAlgorithmType}
+                            mazeId={item['maze'].mazeId}
                             height={item["maze"].height}
                             width={item["maze"].width}
-                            genAlgorithmType={normalizeAlgorithmName(item["maze"].algorithmType)} />
+                            genAlgorithmType={normalizeAlgorithmName(item["maze"].genAlgorithmType)}
+                            generateTime={item["maze"].generateTime}
+                            solveId={item['mazeSolution'].solveId}
+                            solveAlg={item["mazeSolution"].solveAlgorithmType}
+                            solveAlgorithmType={item["mazeSolution"].solveAlgorithmType}
+                            solveTime={item["mazeSolution"].solveTime}
+                            stepsNumber={item["solveCells"].length} />
                         <Maze
                             key={index3}
                             maze={item["maze"]}
                             cells={item["cells"]}
                             solveCells={item["solveCells"]} />
+                        {item["showSolutions"] &&
+                            <MazeSolutionsList
+                                maze={item["maze"]} />}
                     </div>)
                 })}
             </div>

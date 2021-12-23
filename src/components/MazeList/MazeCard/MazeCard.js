@@ -1,6 +1,7 @@
 import React from "react";
 import "./MazeCard.css";
 import { useHistory } from "react-router-dom";
+import { GenAlgorithmsItems } from "../../ItemLists/GenAlgorithmsItems";
 
 const MazeCard = (props) => {
     let history = useHistory();
@@ -9,32 +10,37 @@ const MazeCard = (props) => {
 
     const handleItemClicked = (event) => {
         event.preventDefault();
-        history.push("/generate/?mazeId=" + props.id)
+        history.push("/generate/?mazeId=" + props.maze.mazeId)
     }
 
     const handleDeleteClicked = (event) => {
         event.preventDefault();
         event.stopPropagation();
-        const mazeIdToDelete = props.id.toString()
-        if (mazeIdToDelete === mazeId)
+        props.deleteMaze(props.maze.mazeId)
+        if (props.maze.mazeId.toString() === mazeId.toString()) {
             history.push("/")
-        props.deleteMaze(props.id)
+        }
+    }
+
+    const normalizeAlgorithmName = (genAlgorithmType) => {
+        const algorithmItem = GenAlgorithmsItems.find(({ value }) => value === genAlgorithmType)
+        return algorithmItem.title;
     }
 
     return (
         <li className="maze-card"
             onClick={handleItemClicked}>
             <h3>
-                {props.id}
+                {props.maze.mazeId}
             </h3>
             <h3>
-                {props.width}
+                {props.maze.width}
             </h3>
             <h3>
-                {props.height}
+                {props.maze.height}
             </h3>
             <h3>
-                {props.algorithmType}
+                {normalizeAlgorithmName(props.maze.genAlgorithmType)}
             </h3>
             <div className="delete-maze-button"
                 onClick={handleDeleteClicked}>

@@ -11,29 +11,31 @@ const SolutionsCard = (props) => {
     const handleItemClicked = (event) => {
         event.preventDefault();
         history.push("/solve/?mazeId=" + props.mazeId +
-            "&solveId=" + props.solveId +
-            "&solveAlg=" + props.solvAlgorithmType)
+            "&solveId=" + props.solveId)
     }
 
     const handleDeleteClicked = (event) => {
         event.preventDefault()
         event.stopPropagation()
-        props.deleteSolve(props.solveId)
+        props.handleDeleteSolve(props.solveId)
     }
 
     const handleCheckboxChange = (event) => {
         event.stopPropagation()
         if (checkedSoluton) {
-            props.handleCheckSolution(props.mazeId, props.solveId, "add")
+            props.handleCheckSolution(props.solveId, "add")
         } else {
-            props.handleCheckSolution(props.mazeId, props.solveId, "remove")
+            props.handleCheckSolution(props.solveId, "remove")
         }
         setCheckedSolution(!checkedSoluton)
     }
 
     const normalizeAlgorithmName = (algorithmValue) => {
         const algorithmItem = GenAlgorithmsItems.find(({ value }) => value === algorithmValue)
-        return algorithmItem.title;
+        if (algorithmItem !== undefined)
+            return algorithmItem.title;
+        else
+            return algorithmValue
     }
 
     return (

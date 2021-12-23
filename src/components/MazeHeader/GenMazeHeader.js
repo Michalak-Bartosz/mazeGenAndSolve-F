@@ -3,23 +3,26 @@ import { SolvAlgorithmsItems } from "../ItemLists/SolvAlgorithmsItems"
 import useApi from "../../api/useApi";
 import { useHistory } from "react-router-dom";
 import "./GenMazeHeader.css"
+import { GenAlgorithmsItems } from "../ItemLists/GenAlgorithmsItems";
 
 const GenMazeHeader = (props) => {
     const api = useApi();
     let history = useHistory();
 
     const [algorithm, setAlgorithm] = useState("Dijkstra")
-    const [newSolvedMaze, setNewSolvedMaze] = useState(null)
+    const [newSolvedMaze, setNewSolvedMaze] = useState()
+    const [showSolutions, setShowSolutions] = useState(false)
 
     useEffect(() => {
-        if (newSolvedMaze != null)
+        if (newSolvedMaze !== undefined)
             history.push("/solve/?mazeId=" + newSolvedMaze.mazeId +
-                "&solveId=" + newSolvedMaze.solveId +
-                "&solveAlg=" + newSolvedMaze.solveAlgorithmType)
+                "&solveId=" + newSolvedMaze.solveId)
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [newSolvedMaze]);
 
     const handleShowSolutionClick = (event) => {
-        history.push("/solve/?mazeId=" + props.mazeId)
+        setShowSolutions(!showSolutions)
+        props.handleShowSolutionClick()
     }
 
     const handleSelectChange = (event) => {
@@ -29,7 +32,7 @@ const GenMazeHeader = (props) => {
     const handleSolveClick = (event) => {
         event.preventDefault()
         const solveParams = {
-            mazeId: props.mazeId,
+            mazeId: props.maze.mazeId,
             solveAlgorithmType: algorithm,
             startCellId: props.startCell,
             endCellId: props.endCell
@@ -44,6 +47,11 @@ const GenMazeHeader = (props) => {
         } catch (error) { }
     }
 
+    const normalizeAlgorithmName = (genAlgorithmType) => {
+        const algorithmItem = GenAlgorithmsItems.find(({ value }) => value === genAlgorithmType)
+        return algorithmItem.title;
+    }
+
     return (
         <div className="maze-header">
             <div className="main-information">
@@ -52,14 +60,14 @@ const GenMazeHeader = (props) => {
                         Maze ID:
                     </h1>
                     <h1 className="maze-id">
-                        {props.mazeId}
+                        {props.maze.mazeId}
                     </h1>
                 </div>
                 <div className="split-h" />
                 <div className="show-solutions-container"
                     onClick={handleShowSolutionClick}>
                     <h2 className="show-solutions-title">
-                        Show Solutions
+                        {showSolutions ? "Hide Solutions" : "Show Solutions"}
                     </h2>
                     <i className="far fa-lightbulb fa-2x solution-icon"></i>
                 </div>
@@ -100,14 +108,21 @@ const GenMazeHeader = (props) => {
                         Height:
                     </h3>
                     <h3 className="maze-height">
-                        {props.height}
+                        {props.maze.height}
                     </h3>
                     <div className="split-v" />
                     <h3 className="label">
                         Width:
                     </h3>
                     <h3 className="maze-width">
-                        {props.width}
+                        {props.maze.width}
+                    </h3>
+                    <div className="split-v" />
+                    <h3 className="label">
+                        Time:
+                    </h3>
+                    <h3 className="maze-width">
+                        {props.maze.generateTime}s
                     </h3>
                 </div>
                 <div className="split-h" />
@@ -116,7 +131,7 @@ const GenMazeHeader = (props) => {
                         Generate Algorithm Type:
                     </h3>
                     <h3 className="maze-gen-algorithm">
-                        {props.genAlgorithmType}
+                        {normalizeAlgorithmName(props.maze.genAlgorithmType)}
                     </h3>
                 </div>
             </div>

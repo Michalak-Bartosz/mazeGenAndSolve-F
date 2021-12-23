@@ -14,21 +14,22 @@ const SolutionsList = (props) => {
     const [isDelete, setIsDelete] = useState(false)
 
     useEffect(() => {
-        getMazes();
+        getMazes()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     useEffect(() => {
         if (mazes.length > 0) {
             getSolutionsForMazes()
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [mazes])
 
     useEffect(() => {
         if (mazes.length > 0) {
-            setSolutionsList([])
-            getSolutionsForMazes()
-            sortSolutionsList()
+            handleReload()
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [isDelete])
 
     async function getMazeSolutions(mazeId) {
@@ -53,7 +54,7 @@ const SolutionsList = (props) => {
     }
 
     const getSolutionsForMazes = () => {
-        mazes.forEach(maze => getMazeSolutions(maze.id))
+        mazes.forEach(maze => getMazeSolutions(maze.mazeId))
     }
 
     const addSolutionsToList = (newSolutions) => {
@@ -64,21 +65,27 @@ const SolutionsList = (props) => {
         setSolutionsList(prevList => [prevList.sort(function (a, b) { return Number(a.mazeId) - Number(b.mazeId) })])
     }
 
-    const handleCheckSolution = (mazeId, solveId, action) => {
+    const handleCheckSolution = (solveId, action) => {
         if (action === "add") {
-            setCheckedSolutionsList(prevList => [...prevList, [mazeId, solveId]])
+            setCheckedSolutionsList(prevList => [...prevList, solveId])
             setCheckCount(prevCount => prevCount + 1)
         } else {
-            setCheckedSolutionsList(prevList => [...prevList.filter(item => item !== [mazeId, solveId])])
+            setCheckedSolutionsList(prevList => [...prevList.filter(item => item !== solveId)])
             setCheckCount(prevCount => prevCount - 1)
         }
+    }
+
+    const handleReload = () => {
+        setSolutionsList([])
+        getSolutionsForMazes()
+        sortSolutionsList()
     }
 
     return (
         <div className="solution-list-wrapper">
             <div className="solution-list-header">
                 <div className="reload-container"
-                    onClick={getMazeSolutions}>
+                    onClick={handleReload}>
                     <h2 className="reload-title">
                         Reload
                     </h2>
@@ -90,25 +97,29 @@ const SolutionsList = (props) => {
             </div>
             <ul className="solution-list">
                 <SolutionsListColumnName
+                    key={-1}
                     changeCheckCount={checkCount}
                     checkedSolutionsList={checkedSolutionsList} />
-                {
-                    solutionsList.length > 0 ? solutionsList.map((item, index) => {
+                {solutionsList.length > 0 ? solutionsList.map((solution, index) => {
+                    if (mazes.find(mazeItem => mazeItem.mazeId === solution.mazeId) !== undefined) {
                         return (
                             <SolutionsCard
                                 key={index}
-                                solveId={item.solveId}
-                                mazeId={item.mazeId}
-                                maze={mazes.find(maze => maze.id === item.mazeId)}
-                                solvAlgorithmType={item.solveAlgorithmType}
-                                deleteSolve={deleteSolve}
+                                solveId={solution.solveId}
+                                mazeId={solution.mazeId}
+                                maze={mazes.find(mazeItem => mazeItem.mazeId === solution.mazeId)}
+                                solvAlgorithmType={solution.solveAlgorithmType}
+                                handleDeleteSolve={deleteSolve}
                                 handleCheckSolution={handleCheckSolution}
                             />)
-                    }) :
-                        <h2 className="none-records">
-                            NONE SOLUTIONS
-                        </h2>
-                }
+                    } else {
+                        return (<div key={-2} />)
+                    }
+                }) :
+                    <h3 className="none-records"
+                        key={-3}>
+                        NONE SOLUTIONS
+                    </h3>}
             </ul>
         </div>
     )

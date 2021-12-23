@@ -1,7 +1,6 @@
 import { React, useEffect, useState } from "react";
 import useApi from "../../api/useApi";
 import MazeCard from "./MazeCard/MazeCard";
-import { GenAlgorithmsItems } from "../ItemLists/GenAlgorithmsItems";
 import MazeListColumnName from "./MazeListColumnName";
 import { useHistory } from "react-router-dom";
 import "./MazeList.css";
@@ -17,6 +16,7 @@ const MazeList = () => {
 
     useEffect(() => {
         getMazes();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [listClicked, isDelete]);
 
     async function getMazes() {
@@ -31,11 +31,6 @@ const MazeList = () => {
             await api.deleteMaze(mazeId);
         } catch (error) { }
         setIsDelete(!isDelete)
-    }
-
-    const normalizeAlgorithmName = (algorithmValue) => {
-        const algorithmItem = GenAlgorithmsItems.find(({ value }) => value === algorithmValue)
-        return algorithmItem.title;
     }
 
     const handleListClicked = () => setListClicked(!listClicked)
@@ -62,15 +57,15 @@ const MazeList = () => {
                     </div>
                     <ul className={listClicked ? "maze-list" : "maze-list-hide"}>
                         <MazeListColumnName />
-                        {mazes.length > 0 ? mazes.map((item, index) => {
+                        {mazes.length > 0 ? mazes.map((maze, index) => {
                             return (
                                 <MazeCard
                                     key={index}
-                                    id={item.id}
-                                    height={item.height}
-                                    width={item.width}
-                                    algorithmType={normalizeAlgorithmName(item.algorithmType)}
-                                    mazes={mazes}
+                                    maze={maze}
+                                    // mazeId={maze.mazeId}
+                                    // height={maze.height}
+                                    // width={maze.width}
+                                    // genAlgorithmType={normalizeAlgorithmName(maze.genAlgorithmType)}
                                     deleteMaze={deleteMaze}
                                 />)
                         }) :

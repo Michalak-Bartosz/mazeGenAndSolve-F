@@ -1,18 +1,18 @@
-import React from "react";
+import { React, useState } from "react";
 import { useHistory } from "react-router-dom";
 import "./SolvMazeHeader.css"
 
 const SolvMazeHeader = (props) => {
     let history = useHistory();
+    const [showSolutions, setShowSolutions] = useState(false)
 
-    const handleShowMazeClick = (event) => {
+    const handleCreateSolutionClick = () => {
         history.push("/generate/?mazeId=" + props.mazeId)
     }
 
-    const handleShowSolutionClick = (event) => {
-        if (props.handleSolveIdChange !== undefined)
-            props.handleSolveIdChange(null)
-        history.push("/solve/?mazeId=" + props.mazeId)
+    const handleShowSolutionClick = () => {
+        setShowSolutions(!showSolutions)
+        props.handleShowSolutionClick()
     }
 
     return (
@@ -27,13 +27,14 @@ const SolvMazeHeader = (props) => {
                     </h1>
                 </div>
                 <div className="split-h" />
-                <div className="show-solutions-container"
-                    onClick={handleShowSolutionClick}>
-                    <h2 className="show-solutions-title">
-                        Show Solutions
-                    </h2>
-                    <i className="far fa-lightbulb fa-2x solution-icon"></i>
-                </div>
+                {props.handleShowSolutionClick !== undefined &&
+                    <div className="show-solutions-container"
+                        onClick={handleShowSolutionClick}>
+                        <h2 className="show-solutions-title">
+                            {showSolutions ? "Hide Solutions" : "Show Solutions"}
+                        </h2>
+                        <i className="far fa-lightbulb fa-2x solution-icon"></i>
+                    </div>}
             </div>
             <div className="split-v" />
             <div className="additional-information">
@@ -54,6 +55,13 @@ const SolvMazeHeader = (props) => {
                     </h3>
                     <h3 className="maze-width">
                         {props.width}
+                    </h3>
+                    <div className="split-v" />
+                    <h3 className="label">
+                        Time:
+                    </h3>
+                    <h3 className="maze-width">
+                        {props.generateTime} s
                     </h3>
                 </div>
                 <div className="split-h" />
@@ -82,7 +90,7 @@ const SolvMazeHeader = (props) => {
                     </>}
 
                 <div className="show-maze-container"
-                    onClick={handleShowMazeClick}>
+                    onClick={handleCreateSolutionClick}>
                     <h2 className="show-maze-title">
                         Create Solution
                     </h2>
@@ -104,12 +112,13 @@ const SolvMazeHeader = (props) => {
                             <h3 className="solve-steps">
                                 {props.stepsNumber}
                             </h3>
+
                             <div className="split-v" />
                             <h3 className="label">
                                 Time:
                             </h3>
                             <h3 className="solve-time">
-                                TODO
+                                {props.solveTime} s
                             </h3>
                         </div>
                         <div className="split-h" />
@@ -118,7 +127,7 @@ const SolvMazeHeader = (props) => {
                                 Solve Algorithm Type:
                             </h3>
                             <h3 className="maze-solv-algorithm">
-                                {props.solveAlg}
+                                {props.solveAlgorithmType}
                             </h3>
                         </div>
                     </div>

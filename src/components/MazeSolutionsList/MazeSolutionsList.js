@@ -11,23 +11,17 @@ const MazeSolutionsList = (props) => {
     const [checkedSolutionsList, setCheckedSolutionsList] = useState([])
     const [checkCount, setCheckCount] = useState(0)
     const [isDelete, setIsDelete] = useState(false)
-    const maze = props.maze
 
     useEffect(() => {
-        if (maze !== null) {
+        if (props.maze !== undefined) {
             getMazeSolutions();
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [isDelete])
-
-    // useEffect(() => {
-    //     if (maze !== null) {
-    //         getMazeSolutions();
-    //     }
-    // }, [])
 
     async function getMazeSolutions() {
         try {
-            const mazeSolutions = await api.getSolutions(maze.id);
+            const mazeSolutions = await api.getSolutions(props.maze.mazeId);
             setSolutionsList(mazeSolutions)
         } catch (error) { }
     }
@@ -41,11 +35,9 @@ const MazeSolutionsList = (props) => {
 
     const handleCheckSolution = (mazeId, solveId, action) => {
         if (action === "add") {
-            console.log("ADD solveId: " + solveId)
             setCheckedSolutionsList(prevList => [...prevList, [mazeId, solveId]])
             setCheckCount(prevCount => prevCount + 1)
         } else {
-            console.log("REMOVE solveId: " + solveId)
             setCheckedSolutionsList(prevList => [...prevList.filter(item => item !== [mazeId, solveId])])
             setCheckCount(prevCount => prevCount - 1)
         }
@@ -77,9 +69,7 @@ const MazeSolutionsList = (props) => {
                             mazeId={item.mazeId}
                             solvAlgorithmType={item.solveAlgorithmType}
                             deleteSolve={deleteSolve}
-                            handleSolveIdChange={props.handleSolveIdChange}
-                            handleCheckSolution={handleCheckSolution}
-                        />)
+                            handleCheckSolution={handleCheckSolution} />)
                 }) :
                     <h2 className="none-records">
                         NONE MAZE SOLUTIONS

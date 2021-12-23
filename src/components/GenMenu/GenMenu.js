@@ -15,7 +15,8 @@ const GenMenu = () => {
 
     useEffect(() => {
         if(newMaze != null)
-            history.push("/generate/?mazeId=" + newMaze.id)
+            history.push("/generate/?mazeId=" + newMaze.mazeId)
+         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [newMaze]);
 
     const handleWidthChange = (event) => {

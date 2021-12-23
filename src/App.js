@@ -15,9 +15,9 @@ const App = () => {
       <Navbar />
       <MazeList />
       <Route path="/" component={HomePage} />
-      <Route path="/raports" component={RaportPage}/>
-      <Route path="/generate" component={GeneratePage}/>
-      <Route path="/solve" component={SolvePage}/>
+      <Route path="/raports" component={RaportPage} />
+      <Route path="/generate" component={GeneratePage} />
+      <Route path="/solve" component={SolvePage} />
       <Route path="/solutions" component={SolutionsPage} />
     </Router>
   );

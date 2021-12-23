@@ -19,6 +19,7 @@
     border-radius: 100px;
     background-color: #006b17;
     border-style: solid;
+    box-shadow: inset #002408 0px 0px 15px;
 }
 
 .end-maze-sign {
@@ -31,6 +32,7 @@
     border-radius: 100px;
     background-color: #c50000;
     border-style: solid;
+    box-shadow: inset #2e0000 0px 0px 15px;
 }
 
 .visited-maze-sign {
@@ -43,6 +45,7 @@
     border-radius: 100px;
     background-color: #fc5800;
     border-style: solid;
+    box-shadow: inset #2c0f00 0px 0px 15px;
 }
 
 @keyframes show-animation {

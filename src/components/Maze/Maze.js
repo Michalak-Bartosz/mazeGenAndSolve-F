@@ -16,6 +16,7 @@ const Maze = (props) => {
         if (props.hasOwnProperty('solveCells') && props.solveCells.length > 0) {
             setSolveCells(props.solveCells)
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [props.solveCells])
 
     const columnStyle = {

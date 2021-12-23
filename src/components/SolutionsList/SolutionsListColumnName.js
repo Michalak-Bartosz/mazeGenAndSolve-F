@@ -14,10 +14,9 @@ const SolutionsListColumnName = (props) => {
     const handleCompareClick = () => {
         if (props.changeCheckCount >= 2) {
             var newPath = "/raports?solveCount=" + props.changeCheckCount
-            var solutionsList = [...props.checkedSolutionsList]
             for (var i = 0; i < props.changeCheckCount; i++) {
-                newPath += "&mazeId" + i + "=" + solutionsList[i][0] +
-                    "&solveId" + i + "=" + solutionsList[i][1]
+                newPath += "&solveId" + i + "=" + props.checkedSolutionsList[i]
+                console.log(props.checkedSolutionsList[i])
             }
             history.push(newPath)
         }

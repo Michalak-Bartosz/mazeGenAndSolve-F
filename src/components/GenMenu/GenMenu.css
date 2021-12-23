@@ -1,15 +1,16 @@
 .main-page-menu {
     display: table-row;
-    margin-top: 1rem;
+    align-self: center;
+    margin: auto;
+    margin-top: 2rem;
     background: black;
     height: fit-content;
     width: fit-content;
     color: white;
-    margin-left: auto;
-    margin-right: auto;
     padding: 2.5rem;
     border-radius: 20px;
-    box-shadow: inset 0 0 1em #A4BAB7;
+    box-shadow: #A4BAB7 0px 0px 5px, #A4BAB7 0px 0px 5px, #A4BAB7 0px 0px 5px,
+        #A4BAB7 0px 0px 5px, #A4BAB7 0px 0px 5px, #A4BAB7 0px 0px 5px;
 }
 
 .main-page-menu h1 {
@@ -102,12 +103,12 @@
 
 .gen-dropdown-item {
     color: white;
-    background: hsl(172, 14%, 20%);   
+    background: hsl(172, 14%, 20%);
 }
 
 .gen-dropdown-item:checked {
     color: white;
-    background-color: black;   
+    background-color: black;
 }
 
 .gen-button {
