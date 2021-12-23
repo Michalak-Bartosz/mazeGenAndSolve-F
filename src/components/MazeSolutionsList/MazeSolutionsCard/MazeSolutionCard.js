@@ -8,10 +8,8 @@ const MazeSolutionCard = (props) => {
 
     const handleItemClicked = (event) => {
         event.preventDefault();
-        props.handleSolveIdChange(props.solveId)
         history.push("/solve/?mazeId=" + props.mazeId +
-            "&solveId=" + props.solveId +
-            "&solveAlg=" + props.solvAlgorithmType)
+            "&solveId=" + props.solveId)
     }
 
     const handleCheckboxChange = (event) => {
