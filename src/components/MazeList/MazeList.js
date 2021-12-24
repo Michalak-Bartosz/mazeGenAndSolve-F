@@ -62,10 +62,6 @@ const MazeList = () => {
                                 <MazeCard
                                     key={index}
                                     maze={maze}
-                                    // mazeId={maze.mazeId}
-                                    // height={maze.height}
-                                    // width={maze.width}
-                                    // genAlgorithmType={normalizeAlgorithmName(maze.genAlgorithmType)}
                                     deleteMaze={deleteMaze}
                                 />)
                         }) :
