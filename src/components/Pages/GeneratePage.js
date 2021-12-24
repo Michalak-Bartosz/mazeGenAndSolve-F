@@ -18,8 +18,9 @@ function GeneratePage(props) {
     const [showSolutions, setShowSolutions] = useState(false)
 
     useEffect(() => {
-        getMazeCells();
-        getMazeParams();
+        getMazeCells()
+        getMazeParams()
+        setShowSolutions(false)
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [mazeId]);
 
