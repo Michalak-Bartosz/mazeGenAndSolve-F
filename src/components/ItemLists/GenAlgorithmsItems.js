@@ -18,7 +18,7 @@ export const GenAlgorithmsItems = [
         isSelected: false
     },
     {
-        title: 'Aldus Border',
+        title: 'Aldous Border',
         value: 'AldousBroder',
         cName: 'gen-dropdown-item',
         isSelected: false
