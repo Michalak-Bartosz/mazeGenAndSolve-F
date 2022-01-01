@@ -16,7 +16,6 @@ const SolutionsListColumnName = (props) => {
             var newPath = "/raports?solveCount=" + props.changeCheckCount
             for (var i = 0; i < props.changeCheckCount; i++) {
                 newPath += "&solveId" + i + "=" + props.checkedSolutionsList[i]
-                console.log(props.checkedSolutionsList[i])
             }
             history.push(newPath)
         }
