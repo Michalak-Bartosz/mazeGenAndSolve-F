@@ -31,7 +31,7 @@ const Maze = (props) => {
 
     const checkCell = (cell) => {
         for (var i = 0; i < solveCells.length; i++) {
-            if (cell.id === solveCells[i].id) {
+            if (cell.cellId === solveCells[i].cellId) {
                 cell.number = i
 
                 if (i === 0)
@@ -50,22 +50,22 @@ const Maze = (props) => {
                 setStartCellId(cellId)
                 props.handleSetStartCell(cellId)
                 setShowStartSign(true)
-                props.cells.find(cell => cell.id === cellId).cellState = "START"
+                props.cells.find(cell => cell.cellId === cellId).cellState = "START"
             } else if (endCellId === null && cellId !== startCellId) {
                 setEndCellId(cellId)
                 props.handleSetEndCell(cellId)
                 setShowEndSign(true)
-                props.cells.find(cell => cell.id === cellId).cellState = "END"
+                props.cells.find(cell => cell.cellId === cellId).cellState = "END"
             } else if (cellId === startCellId) {
                 setStartCellId(null)
                 props.handleSetStartCell(null)
                 setShowStartSign(false)
-                props.cells.find(cell => cell.id === cellId).cellState = "UNVISITED"
+                props.cells.find(cell => cell.cellId === cellId).cellState = "UNVISITED"
             } else if (cellId === endCellId) {
                 setEndCellId(null)
                 props.handleSetEndCell(null)
                 setShowEndSign(false)
-                props.cells.find(cell => cell.id === cellId).cellState = "UNVISITED"
+                props.cells.find(cell => cell.cellId === cellId).cellState = "UNVISITED"
             }
         }
     }

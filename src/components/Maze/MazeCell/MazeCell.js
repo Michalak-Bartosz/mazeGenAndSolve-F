@@ -3,9 +3,7 @@ import './MazeCell.css'
 
 const MazeCell = (props) => {
 
-    const cell = props.cell
-    const cellState = cell.cellState
-    const walls = new Map(Object.entries(cell.walls))
+    const walls = new Map(Object.entries(props.cell.walls))
 
     const cellStyle = {
         borderTopWidth: walls.get("TOP").isVisible ? "5px" : "0px",
@@ -23,7 +21,7 @@ const MazeCell = (props) => {
 
     const animationStyle = {
         animation: "show-animation 2s",
-        animationDelay: cell.number/8 + "s",
+        animationDelay: props.cell.number/8 + "s",
         animationFillMode: "both"
     }
 
@@ -34,14 +32,14 @@ const MazeCell = (props) => {
             onClick={handleOnClick} >
             <div style={animationStyle} className={getClassName()}>
                 <h3>
-                    {cell.number}
+                    {props.cell.number}
                 </h3>
             </div>
         </div>)
     }
 
     const getClassName = () => {
-        switch (cellState) {
+        switch (props.cell.cellState) {
             case 'START':
                 return "start-maze-sign"
             case 'END':
@@ -54,7 +52,7 @@ const MazeCell = (props) => {
     }
 
     const handleOnClick = (event) => {
-        props.handleCellClicked(cell.id)
+        props.handleCellClicked(props.cell.cellId)
     }
 
     return (
