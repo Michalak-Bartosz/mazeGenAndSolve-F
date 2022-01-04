@@ -17,7 +17,7 @@ const MazeCard = (props) => {
         event.preventDefault();
         event.stopPropagation();
         props.deleteMaze(props.maze.mazeId)
-        if (props.maze.mazeId.toString() === mazeId.toString()) {
+        if (props.maze.mazeId.toString() === mazeId) {
             history.push("/")
         }
     }
