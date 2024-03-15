@@ -11,7 +11,7 @@ const useHttpApi = () => {
 
   headers.append("Content-Type", "application/json");
   headers.append("Accept", "application/json");
-  headers.append("Origin", "http://localhost:3000");
+  headers.append("Origin", "http://89.168.82.33:3000");
 
   function getRequest(method, body) {
     return {
