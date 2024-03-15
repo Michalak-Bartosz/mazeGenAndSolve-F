@@ -43,7 +43,7 @@ function InfoPage() {
           className="download-info"
           to="/files/Instrukcja.pdf"
           target="_blank"
-          download
+          download="Instrukcja.pdf"
         >
           Pobierz instrukcję
         </Link>
@@ -87,21 +87,74 @@ function InfoPage() {
           Uzasadnienie dlaczego strona spełnia wymagania
         </h1>
         <div id="Uzasadnienie" className="paragraph-info">
-          &ensp;&ensp;&ensp;Aplikacja webowa "MazeGen&Solve" została stworzona
-          przy użyciu: REST API oraz modułu odpowiadającego za interakcję z
-          użytkownikiem za pośrednictwem przeglądarki (ang. frontend).
-          <br />
-          &ensp;&ensp;&ensp;Pierwszy moduł oparty jest na technologii Java w
-          wersji 16 oraz frameworku Spring Boot w wersji 2.5.3. Moduł
-          odpowiedzialny za interfejs użytkownika został zbudowany w oparciu o
-          język programowania JavaScript oraz bibliotekę React.js. W celu jego
-          uruchomienia należy skorzystać z platformy Node.js w wersji 16.9.1
-          bądź wyżej, która została oparta na środowisku wykonawczym JavaScript
-          Chrome i służy do łatwego tworzenia szybkich i skalowalnych aplikacji
-          sieciowych.
-          <br />
-          &ensp;&ensp;&ensp;Wykorzystanie tych rozwiązań pozwoliło stworzyć
-          stronę internetową
+          <p>
+            &ensp;&ensp;&ensp;Aplikacja webowa "MazeGen&Solve" została stworzona
+            przy użyciu: REST API oraz modułu odpowiadającego za interakcję z
+            użytkownikiem za pośrednictwem przeglądarki (ang. frontend).
+          </p>
+          <p>
+            &ensp;&ensp;&ensp;Pierwszy moduł oparty jest na technologii Java w
+            wersji 16 oraz frameworku Spring Boot w wersji 2.5.3. Moduł
+            odpowiedzialny za interfejs użytkownika został zbudowany w oparciu o
+            język programowania JavaScript oraz bibliotekę React.js. W celu jego
+            uruchomienia należy skorzystać z platformy Node.js w wersji 16.9.1
+            bądź wyżej, która została oparta na środowisku wykonawczym
+            JavaScript Chrome i służy do łatwego tworzenia szybkich i
+            skalowalnych aplikacji sieciowych.
+          </p>
+          <p>
+            &ensp;&ensp;&ensp;Wykorzystanie tych rozwiązań pozwoliło stworzyć
+            stronę internetową spełniającą wymagania przedmiotu. W rozwiązaniu
+            jako wybraną technologię zaimplementowałem oddzielny serwis REST API
+            z bazą danych do przechowywania informacji przetwarzanych w
+            aplikacji. System zarządania bazą danych który wybrałem to H2. Baza
+            danych użyta w projekcie przechowywana jest w pamięci maszyny na
+            której działa aplikacja.
+          </p>
+          <p>
+            &ensp;&ensp;&ensp; Framework React.js generuje HTML'a poprzez
+            wywołanie funkcji createRoot() oraz metody render(). Pierwsza z nich
+            przyjmuje jeden argument, którym jest element HTML, w którym
+            komponenty React powinny być wyświetlone. Druga odpowiada za
+            renderowanie komponentów React. W folderze public projektu znajduje
+            się plik index.html, który zawiera w sobie element {"<div>"} o id
+            'root'. Jest on argumentem metody createRoot() i na nim wywoływana
+            jest runkcja render(), która jako argument przyjmuje komponent
+            React, który przechowuje w sobie pozostałe komponenty. Komponenty
+            React tworzy się przy pomocy JSX (ang. JavaScript XML). Jest to
+            format zapisu kodu HTML oraz XML wewnątrz języka JavaScript.
+            Komponenty React zostały przeze mnie sformatowane przy pomocy CSS.
+            Napisałem je sam - bez pomocy zewnętrznych bibliotek.
+          </p>
+          <p>
+            &ensp;&ensp;&ensp;W celu spradzenia kompatybilności przeprowadziłem
+            testy strony na następujących popularnych przeglądarkach:
+          </p>
+          <ul className="list-info">
+            <li>Firefox,</li>
+            <li>Google Chrome,</li>
+            <li>Microsoft Edge,</li>
+            <li>Opera GX,</li>
+            <li>Brave.</li>
+          </ul>
+          <p>Na każdej z nich strona internetowa działała poprawnie.</p>
+          <p>
+            &ensp;&ensp;&ensp;Jeśli chodzi o dostępność dla osób
+            niepełnosprawnych strona została zaprojektowana tak, że nie posiada
+            obrazków, a każdy z komponentów jeśli możliwe jest jego
+            wygenerowanie posiada opis. Nawigacja została przemyślana i
+            najważniejsze elementy sterujące znajdują się na górnym pasku
+            nawigacji strony. Element pozwalający na podejrzenie wygenerowanych
+            labiryntów znajduje się na dole strony i można z niego skorzystać w
+            każdym momencie korzystania z rozwiązania.
+          </p>
+          <p>
+            &ensp;&ensp;&ensp;Serwis posiada czytelne kolory, kontrastujące ze
+            sobą w celu ułatwienia korzystania z rozwiązania. Czcionki oraz ich
+            wielność zostały dobrane w taki sposób, aby były czytelne. Podczas
+            testów strony nie odnotowałem migania elementów oraz innych
+            utrudniających korzystanie anomalii.
+          </p>
         </div>
       </div>
     </div>

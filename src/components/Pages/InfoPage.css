@@ -12,6 +12,7 @@
   padding: 2rem;
   padding-top: 0rem;
   font-size: 1.8rem;
+  text-justify: inter-word;
 }
 
 .list-info {
