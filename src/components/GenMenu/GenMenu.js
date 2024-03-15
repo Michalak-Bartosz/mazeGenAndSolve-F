@@ -62,7 +62,7 @@ const GenMenu = () => {
                         type="number"
                         value={width}
                         min="2"
-                        max={100}
+                        max="30"
                         onChange={handleWidthChange} />
                     <h4>Number of cells</h4>
                 </div>
@@ -72,7 +72,7 @@ const GenMenu = () => {
                         type="number"
                         value={height}
                         min="2"
-                        max="100"
+                        max="30"
                         onChange={handleHeightChange} />
                     <h4>Number of cells</h4>
                 </div>

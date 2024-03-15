@@ -19,6 +19,9 @@ function Navbar() {
                     <Link className="solve-link" to="/solutions">
                         All Solutions
                     </Link>
+                    <Link className="info-link" to="/info">
+                        Info
+                    </Link>
                 </div>
             </nav>
         </>

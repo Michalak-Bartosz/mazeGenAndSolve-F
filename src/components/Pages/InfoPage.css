@@ -1,0 +1,31 @@
+.header-info {
+  font-size: 3rem;
+  text-align: center;
+  padding: 2rem;
+  font-weight: bold;
+  color: #5370ff;
+  text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+}
+
+.paragraph-info {
+  text-align: left;
+  padding: 2rem;
+  padding-top: 0rem;
+  font-size: 1.8rem;
+}
+
+.list-info {
+  padding: 1rem;
+  margin-left: 3rem;
+}
+
+.list-item-info {
+  display: flex;
+}
+
+.download-info {
+  text-align: center;
+  font-size: 2rem;
+  padding: 2rem;
+  padding-top: 0rem;
+}

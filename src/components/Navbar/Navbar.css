@@ -1,72 +1,86 @@
 .navbar-items {
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    z-index: 999;
-    display: flex;
-    align-items: center;
-    font-size: 25px;
-    background: black;
-    color: white;
-    height: 100px;
-    width: 100%;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  font-size: 25px;
+  background: black;
+  color: white;
+  height: 100px;
+  width: 100%;
 }
 
 .navbar-menu {
-    display: flex;
-    height: 100%;
-    width: 100%;
-    align-items: center;
-    justify-content: flex-end;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: flex-end;
 }
 
 .navbar-logo {
-    display: flex;
-    color: white;
-    justify-self: start;
-    margin-left: 2rem;
-    margin-right: 2rem;
-    text-decoration: none;
-    align-items: center;
-    font-size: 40px;
-    cursor: pointer;
+  display: flex;
+  color: white;
+  justify-self: start;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  text-decoration: none;
+  align-items: center;
+  font-size: 40px;
+  cursor: pointer;
 }
 
 .navbar-logo-image {
-    padding: 5px;
-    height: 50px;
-    width: 50px;
+  padding: 5px;
+  height: 50px;
+  width: 50px;
 }
 
 .navbar-logo-title {
-    padding: 5px;
+  padding: 5px;
 }
 
 .generate-link {
-    color: #EFF2C0;
-    text-decoration: none;
-    text-align: center;
-    padding: 1rem;
+  color: #eff2c0;
+  text-decoration: none;
+  text-align: center;
+  padding: 1rem;
 }
 
 .generate-link:hover {
-    color: black;
-    background: #EFF2C0;
-    border-radius: 4px;
-    transition: all 0.2s ease-out;
+  color: black;
+  background: #eff2c0;
+  border-radius: 4px;
+  transition: all 0.2s ease-out;
 }
 
 .solve-link {
-    color: #A52422;
-    text-decoration: none;
-    text-align: center;
-    padding: 1rem;
-    margin-right: 2rem;
+  color: #a52422;
+  text-decoration: none;
+  text-align: center;
+  padding: 1rem;
 }
 
 .solve-link:hover {
-    color: black;
-    background: #A52422;
-    border-radius: 4px;
-    transition: all 0.2s ease-out;
+  color: black;
+  background: #a52422;
+  border-radius: 4px;
+  transition: all 0.2s ease-out;
+}
+
+.info-link {
+  color: #5370ff;
+  text-decoration: none;
+  text-align: center;
+  padding: 1rem;
+  margin-right: 2rem;
+}
+
+.info-link:hover {
+  color: black;
+  background: #5370ff;
+  border-radius: 4px;
+  transition: all 0.2s ease-out;
 }
